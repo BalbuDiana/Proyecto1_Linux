@@ -13,12 +13,12 @@ while [ $CONTROL=0 ] ; do
         touch WhiteList.txt | touch BlackList.txt
         cat /etc/mtab | grep media >> /dev/null
 	#Declaracion de la barible USB
-	USB=$( dmesg | tail -n20 | grep ": Serial" | awk '{print $6}' )
+	USB=$(dmesg | tail -n20 | grep ": Serial" | awk '{print $6}' )
         if [ $? -ne 0 ]; then
                 CONTROL=0
         else
                 CONTROL=1
-		echo "Se a conectado: $USBDEV" 
+		echo "Se a conectado: $USB" 
                 echo "1)Montar y Ejecutar 2)Añadir a la lista Blanca 3)Añadir a la lista Negra 4)Desmontar"
 		read eleccion
 			case $eleccion in
